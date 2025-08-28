@@ -1,0 +1,115 @@
+.pebble {
+  --background: 0 0% 96%; /* Light Grey: #F5F5F5 */
+  --foreground: 0 0% 7%; /* Deep Black: #121212 */
+  --card: 0 0% 96%; /* Light Grey: #F5F5F5 */
+  --card-foreground: 0 0% 7%; /* Deep Black: #121212 */
+  --popover: 0 0% 96%; /* Light Grey: #F5F5F5 */
+  --popover-foreground: 0 0% 7%; /* Deep Black: #121212 */
+
+  /* Primary Color: Blue */
+  --primary: 212 100% 34%; /* Blue: #004AAF */
+  --primary-gradient-1: 212 100% 30%; /* Darker Blue for gradient */
+  --primary-foreground: 0 0% 100%; /* White: #FFFFFF */
+
+  /* Secondary Color: Cool Silver */
+  --secondary: 0 0% 75%; /* Silver: #C0C0C0 */
+  --secondary-foreground: 0 0% 7%; /* Deep Black: #121212 */
+
+  /* Muted / Accent Colors */
+  --muted: 0 0% 75%; /* Cool Silver: #C0C0C0 */
+  --muted-foreground: 0 0% 25%; /* Darker Silver */
+
+  --accent: 283 39% 58%; /* Lavender */
+  --accent-foreground: 0 0% 7%; /* Deep Black: #121212 */
+
+  /* Destructive */
+  --destructive: 0 100% 50%; /* Red: #FF0000 */
+  --destructive-foreground: 0 0% 100%; /* White: #FFFFFF */
+
+  /* Borders and Shadows */
+  --border: 0 0% 75%; /* Silver: #C0C0C0 */
+  --shadow: 0 0% 90%; /* Light Shadow */
+
+  --input: 0 0% 90%; /* Light Grey Input */
+  --ring: 0 100% 50%; /* Red: #FF0000 */
+  --radius: 0.6rem;
+}
+
+
+.pebble-dark {
+  --background: 0 0% 15%; /* Dark Grey */
+  --foreground: 0 0% 88%; /* Light Silver */
+  --card: 0 0% 15%; /* Dark Grey */
+  --card-foreground: 0 0% 88%; /* Light Silver */
+  --popover: 0 0% 17%; /* Darker Grey */
+  --popover-foreground: 0 0% 88%; /* Light Silver */
+
+  --primary: 212 100% 34%; /* Blue: #004AAF */
+  --primary-gradient-1: 212 100% 30%; /* Darker Blue for gradient */
+  --primary-foreground: 0 0% 100%; /* White: #FFFFFF */
+
+  /* Secondary Color: Cool Silver */
+  --secondary: 0 0% 20%; /* Dark Silver */
+  --secondary-foreground: 0 0% 100%; /* White */
+
+  /* Muted / Accent Colors */
+  --muted: 0 0% 25%; /* Muted Silver */
+  --muted-foreground: 0 0% 88%; /* Light Silver */
+
+  --accent: 283 39% 58%; /* Lavender */
+  --accent-foreground: 0 0% 100%; /* White: #FFFFFF */
+
+  /* Destructive */
+  --destructive: 0 100% 50%; /* Red: #FF0000 */
+  --destructive-foreground: 0 0% 100%; /* White: #FFFFFF */
+
+  /* Borders and Shadows */
+  --border: 0 0% 20%; /* Dark Grey */
+  --shadow: 0 0% 0%; /* No Shadow */
+
+  --input: 0 0% 20%; /* Dark Grey Input */
+  --ring: 0 100% 50%; /* Red: #FF0000 */
+  --radius: 0.6rem;
+}
+
+.pebble-midnight {
+  --background: 0 0% 8%; /* Midnight Black */
+  --foreground: 0 0% 80%; /* Light Silver */
+  --card: 24 9.8% 10%; /* Dark Brownish Grey */
+  --card-foreground: 0 0% 80%; /* Light Silver */
+  --popover: 0 0% 11%; /* Dark Grey */
+  --popover-foreground: 0 0% 80%; /* Light Silver */
+
+  /* Primary Color: Vibrant Red */
+  --primary: 0 100% 50%; /* Red: #FF0000 */
+  --primary-gradient-1: 0 100% 45%; /* Darker Red for gradient */
+  --primary-foreground: 0 0% 100%; /* White: #FFFFFF */
+
+  /* Secondary Color: Cool Silver */
+  --secondary: 0 0% 13%; /* Dark Silver */
+  --secondary-foreground: 0 0% 100%; /* White */
+
+  /* Muted / Accent Colors */
+  --muted: 0 0% 13%; /* Muted Dark Silver */
+  --muted-foreground: 0 0% 80%; /* Light Silver */
+
+  --accent: 283 39% 58%; /* Lavender */
+  --accent-foreground: 0 0% 100%; /* White: #FFFFFF */
+
+  /* Destructive */
+  --destructive: 0 100% 50%; /* Red: #FF0000 */
+  --destructive-foreground: 0 0% 100%; /* White: #FFFFFF */
+
+  /* Borders and Shadows */
+  --border: 0 0% 14%; /* Dark Grey */
+  --shadow: 0 0% 0%; /* No Shadow */
+
+  --input: 0 0% 14%; /* Dark Grey Input */
+  --ring: 0 100% 50%; /* Red: #FF0000 */
+  --radius: 0.6rem;
+}
+
+html {
+  font-size: 15px;
+  @apply md:overflow-hidden
+}

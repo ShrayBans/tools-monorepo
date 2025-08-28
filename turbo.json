@@ -1,0 +1,52 @@
+{
+  "$schema": "https://turbo.build/schema.json",
+  "pipeline": {
+    "build": {
+      "dependsOn": ["^build"],
+      "outputs": ["dist/**", ".vercel/**"],
+      "env": ["NODE_ENV"]
+    },
+    "dev": {
+      "cache": false,
+      "persistent": true
+    },
+    "dev:prod": {
+      "cache": false,
+      "persistent": true
+    },
+    "desktop:dev": {
+      "cache": false,
+      "persistent": true
+    },
+    "desktop:build": {
+      "dependsOn": ["build"],
+      "outputs": [".todesktop/**"],
+      "env": ["NODE_ENV"]
+    },
+    "desktop:release": {
+      "dependsOn": ["desktop:build"],
+      "cache": false,
+      "env": ["TODESKTOP_EMAIL", "TODESKTOP_ACCESS_TOKEN"]
+    },
+    "type-check": {
+      "dependsOn": ["^build"],
+      "outputs": []
+    },
+    "type-check:ci": {
+      "dependsOn": ["^build"],
+      "outputs": []
+    },
+    "lint": {
+      "outputs": []
+    },
+    "test": {
+      "dependsOn": ["^build"],
+      "outputs": ["coverage/**"]
+    },
+    "clean": {
+      "cache": false,
+      "outputs": []
+    }
+  },
+  "globalDependencies": ["package.json", "bun.lock", "tsconfig.base.json", ".eslintrc.json", ".prettierrc"]
+}

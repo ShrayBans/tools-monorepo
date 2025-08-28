@@ -1,0 +1,115 @@
+.tooldex {
+  --background: 260 40% 96%; /* Light Lavender: #F0E6FF */
+  --foreground: 260 60% 10%; /* Deep Purple: #1A0033 */
+  --card: 260 40% 96%; /* Light Lavender: #F0E6FF */
+  --card-foreground: 260 60% 10%; /* Deep Purple: #1A0033 */
+  --popover: 260 40% 96%; /* Light Lavender: #F0E6FF */
+  --popover-foreground: 260 60% 10%; /* Deep Purple: #1A0033 */
+
+  /* Primary Color: Vibrant Purple */
+  --primary: 260 100% 60%; /* Bright Purple: #6600FF */
+  --primary-gradient-1: 260 100% 55%; /* Slightly Darker Purple for gradient */
+  --primary-foreground: 0 0% 100%; /* White: #FFFFFF */
+
+  /* Secondary Color: Cool Lavender */
+  --secondary: 260 30% 80%; /* Light Lavender: #D1C2E6 */
+  --secondary-foreground: 260 60% 10%; /* Deep Purple: #1A0033 */
+
+  /* Muted / Accent Colors */
+  --muted: 260 20% 85%; /* Muted Lavender: #E0D6F2 */
+  --muted-foreground: 260 40% 30%; /* Darker Lavender */
+
+  --accent: 280 100% 70%; /* Bright Pink: #FF66FF */
+  --accent-foreground: 260 60% 10%; /* Deep Purple: #1A0033 */
+
+  /* Destructive */
+  --destructive: 0 100% 60%; /* Bright Red: #FF3333 */
+  --destructive-foreground: 0 0% 100%; /* White: #FFFFFF */
+
+  /* Borders and Shadows */
+  --border: 260 30% 80%; /* Light Lavender: #D1C2E6 */
+  --shadow: 260 40% 90%; /* Very Light Lavender Shadow */
+
+  --input: 260 20% 90%; /* Light Lavender Input */
+  --ring: 260 100% 60%; /* Bright Purple: #6600FF */
+  --radius: 0.6rem;
+}
+
+.tooldex-dark {
+  --background: 260 40% 15%; /* Dark Purple: #2B1B40 */
+  --foreground: 260 30% 90%; /* Light Lavender: #E6D9FF */
+  --card: 260 40% 15%; /* Dark Purple: #2B1B40 */
+  --card-foreground: 260 30% 90%; /* Light Lavender: #E6D9FF */
+  --popover: 260 35% 18%; /* Slightly Darker Purple */
+  --popover-foreground: 260 30% 90%; /* Light Lavender: #E6D9FF */
+
+  /* Primary Color: Vibrant Purple */
+  --primary: 260 100% 70%; /* Bright Purple: #9933FF */
+  --primary-gradient-1: 260 100% 65%; /* Slightly Darker Purple for gradient */
+  --primary-foreground: 0 0% 100%; /* White: #FFFFFF */
+
+  /* Secondary Color: Cool Lavender */
+  --secondary: 260 30% 30%; /* Dark Lavender: #4D3D66 */
+  --secondary-foreground: 0 0% 100%; /* White */
+
+  /* Muted / Accent Colors */
+  --muted: 260 20% 35%; /* Muted Dark Lavender: #5C4D73 */
+  --muted-foreground: 260 30% 90%; /* Light Lavender: #E6D9FF */
+
+  --accent: 280 100% 75%; /* Bright Pink: #FF99FF */
+  --accent-foreground: 0 0% 100%; /* White: #FFFFFF */
+
+  /* Destructive */
+  --destructive: 0 100% 65%; /* Bright Red: #FF4D4D */
+  --destructive-foreground: 0 0% 100%; /* White: #FFFFFF */
+
+  /* Borders and Shadows */
+  --border: 260 30% 25%; /* Dark Lavender: #40334D */
+  --shadow: 260 40% 5%; /* Very Dark Purple Shadow */
+
+  --input: 260 30% 25%; /* Dark Lavender Input */
+  --ring: 260 100% 70%; /* Bright Purple: #9933FF */
+  --radius: 0.6rem;
+}
+
+.tooldex-midnight {
+  --background: 260 40% 8%; /* Midnight Purple: #1A0F26 */
+  --foreground: 260 20% 85%; /* Very Light Lavender: #E0D6F2 */
+  --card: 260 35% 12%; /* Dark Purplish Grey: #251A33 */
+  --card-foreground: 260 20% 85%; /* Very Light Lavender: #E0D6F2 */
+  --popover: 260 40% 10%; /* Very Dark Purple: #1F1329 */
+  --popover-foreground: 260 20% 85%; /* Very Light Lavender: #E0D6F2 */
+
+  /* Primary Color: Vibrant Purple */
+  --primary: 260 100% 75%; /* Bright Purple: #B366FF */
+  --primary-gradient-1: 260 100% 70%; /* Slightly Darker Purple for gradient */
+  --primary-foreground: 0 0% 100%; /* White: #FFFFFF */
+
+  /* Secondary Color: Cool Lavender */
+  --secondary: 260 30% 20%; /* Very Dark Lavender: #332940 */
+  --secondary-foreground: 0 0% 100%; /* White */
+
+  /* Muted / Accent Colors */
+  --muted: 260 20% 25%; /* Muted Very Dark Lavender: #3D334D */
+  --muted-foreground: 260 20% 85%; /* Very Light Lavender: #E0D6F2 */
+
+  --accent: 280 100% 80%; /* Bright Pink: #FFB3FF */
+  --accent-foreground: 0 0% 100%; /* White: #FFFFFF */
+
+  /* Destructive */
+  --destructive: 0 100% 70%; /* Bright Red: #FF6666 */
+  --destructive-foreground: 0 0% 100%; /* White: #FFFFFF */
+
+  /* Borders and Shadows */
+  --border: 260 30% 15%; /* Very Dark Lavender: #29203D */
+  --shadow: 260 40% 3%; /* Almost Black Purple Shadow */
+
+  --input: 260 30% 15%; /* Very Dark Lavender Input */
+  --ring: 260 100% 75%; /* Bright Purple: #B366FF */
+  --radius: 0.6rem;
+}
+
+html {
+  font-size: 15px;
+  @apply md:overflow-hidden
+}

@@ -1,0 +1,91 @@
+{
+  "name": "@shray/monorepo",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "packageManager": "pnpm@8.15.0",
+  "engines": {
+    "node": ">=18.0.0",
+    "pnpm": ">=8.0.0"
+  },
+  "scripts": {
+    "dev": "infisical run --env=local --command \"turbo run dev --parallel  --log-prefix=none\"",
+    "dev:log": "mkdir -p tmp && pnpm dev 2>&1 | tee -a tmp/vite-dev.log",
+    "dev:prod": "infisical run --env=prod --command \"turbo run dev:prod --parallel  --log-prefix=none\"",
+    "dev:web": "infisical run --env=local --command \"turbo run dev --filter=@shray/web\"",
+    "dev:api": "infisical run --env=local --command \"cd apps/edge-api && pnpm dev\"",
+    "dev:desktop": "infisical run --env=local --command \"concurrently 'cd apps/edge-api && pnpm dev' 'cd apps/web && pnpm run desktop:dev'\"",
+    "db:push": "infisical run --env=local --command \"cd apps/edge-api && pnpm db:push\"",
+    "build": "infisical run --env=local --command \"turbo run build\"",
+    "build:web": "infisical run --env=local --command \"turbo run build --filter=@shray/web\"",
+    "build:api": "infisical run --env=local --command \"turbo run build --filter=@shray/edge-api\"",
+    "build:extension": "infisical run --env=local --command \"turbo run build --filter=@shray/chrome-extension\"",
+    "build:extension:prod": "infisical run --env=prod --command \"turbo run build --filter=@shray/chrome-extension\"",
+    "build:desktop": "infisical run --env=local --command \"cd apps/web && pnpm run desktop:build\"",
+    "release:desktop": "infisical run --env=local --command \"cd apps/web && pnpm run desktop:release\"",
+    "type-check:ci": "turbo run type-check:ci",
+    "type-check": "turbo run type-check",
+    "lint": "turbo run lint",
+    "lint:fix": "turbo run lint --fix",
+    "clean": "turbo run clean && rm -rf node_modules .turbo",
+    "test": "turbo run test",
+    "test:e2e": "playwright test tests/pages/",
+    "test:e2e:headed": "playwright test tests/pages/ --headed",
+    "test:e2e:headless": "playwright test tests/pages/",
+    "test:e2e:ui": "playwright test tests/pages/ --ui",
+    "test:e2e:debug": "playwright test tests/pages/ --headed --debug",
+    "test:e2e:single": "playwright test",
+    "test:e2e:prod": "TEST_ENV=production playwright test tests/pages/",
+    "test:e2e:prod:headed": "TEST_ENV=production playwright test tests/pages/ --headed",
+    "test:auth": "playwright test tests/auth.setup.ts --headed",
+    "test:auth:manual": "playwright test tests/manual-auth.ts --headed",
+    "test:codegen": "npx playwright codegen http://localhost:5173 --load-storage=playwright/.auth/user.json",
+    "deploy:web": "cd apps/web && vercel --prod",
+    "deploy:api": "cd apps/edge-api && pnpm deploy:production",
+    "dev:unsafe": "turbo run dev --parallel",
+    "build:unsafe": "turbo run build",
+    "======= mcp =======": "",
+    "browsertools": "bunx @agentdeskai/browser-tools-server@latest",
+    "load-test": "bun run scripts/load-test.ts",
+    "audit:nutrition-crons": "cd apps/edge-api && tsx src/scripts/fix-nutrition-crons.ts",
+    "fix:nutrition-crons": "cd apps/edge-api && tsx src/scripts/fix-nutrition-crons.ts --fix"
+  },
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "trustedDependencies": [
+    "@playwright/test"
+  ],
+  "devDependencies": {
+    "@biomejs/biome": "^2.1.2",
+    "@playwright/test": "^1.53.1",
+    "@types/node": "^20.11.0",
+    "@typescript-eslint/eslint-plugin": "^6.19.0",
+    "@typescript-eslint/parser": "^6.19.0",
+    "@typescript/native-preview": "7.0.0-dev.20250821.1",
+    "concurrently": "^9.2.0",
+    "eslint": "^8.56.0",
+    "prettier": "^3.2.4",
+    "turbo": "^1.12.0",
+    "typescript": "5.9.2",
+    "vitest": "^1.2.0"
+  },
+  "resolutions": {
+    "react": "18.3.1",
+    "react-dom": "18.3.1",
+    "zod": "^3.25.0",
+    "typescript": "5.9.2",
+    "lodash-es": "4.17.21"
+  },
+  "dependencies": {
+    "@tiptap/extension-link": "^3.2.0",
+    "@tiptap/react": "^3.2.0",
+    "@tiptap/starter-kit": "2.1.7",
+    "@types/papaparse": "^5.3.14",
+    "@types/uuid": "^10.0.0",
+    "date-fns": "^4.1.0",
+    "papaparse": "5.4.1",
+    "uuid": "^11.1.0"
+  }
+}

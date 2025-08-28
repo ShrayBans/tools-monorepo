@@ -1,0 +1,7 @@
+.vercel
+.wrangler
+.dev.vars
+wrangler.toml.bak
+
+# Sentry Config File
+.sentryclirc

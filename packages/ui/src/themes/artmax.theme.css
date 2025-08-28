@@ -1,0 +1,115 @@
+.artmax {
+  --background: 220 40% 96%; /* Light Blue: #E6F0FF */
+  --foreground: 220 60% 10%; /* Deep Blue: #001A33 */
+  --card: 220 40% 96%; /* Light Blue: #E6F0FF */
+  --card-foreground: 220 60% 10%; /* Deep Blue: #001A33 */
+  --popover: 220 40% 96%; /* Light Blue: #E6F0FF */
+  --popover-foreground: 220 60% 10%; /* Deep Blue: #001A33 */
+
+  /* Primary Color: Vibrant Blue */
+  --primary: 220 100% 60%; /* Bright Blue: #0066FF */
+  --primary-gradient-1: 220 100% 55%; /* Slightly Darker Blue for gradient */
+  --primary-foreground: 0 0% 100%; /* White: #FFFFFF */
+
+  /* Secondary Color: Cool Blue */
+  --secondary: 220 30% 80%; /* Light Blue: #C2D6E6 */
+  --secondary-foreground: 220 60% 10%; /* Deep Blue: #001A33 */
+
+  /* Muted / Accent Colors */
+  --muted: 220 20% 85%; /* Muted Blue: #D6E0F2 */
+  --muted-foreground: 220 40% 30%; /* Darker Blue */
+
+  --accent: 200 100% 70%; /* Bright Cyan: #66FFFF */
+  --accent-foreground: 220 60% 10%; /* Deep Blue: #001A33 */
+
+  /* Destructive */
+  --destructive: 0 100% 60%; /* Bright Red: #FF3333 */
+  --destructive-foreground: 0 0% 100%; /* White: #FFFFFF */
+
+  /* Borders and Shadows */
+  --border: 220 30% 80%; /* Light Blue: #C2D6E6 */
+  --shadow: 220 40% 90%; /* Very Light Blue Shadow */
+
+  --input: 220 20% 90%; /* Light Blue Input */
+  --ring: 220 100% 60%; /* Bright Blue: #0066FF */
+  --radius: 0.6rem;
+}
+
+.artmax-dark {
+  --background: 220 40% 15%; /* Dark Blue: #1B2B40 */
+  --foreground: 220 30% 90%; /* Light Blue: #D9E6FF */
+  --card: 220 40% 15%; /* Dark Blue: #1B2B40 */
+  --card-foreground: 220 30% 90%; /* Light Blue: #D9E6FF */
+  --popover: 220 35% 18%; /* Slightly Darker Blue */
+  --popover-foreground: 220 30% 90%; /* Light Blue: #D9E6FF */
+
+  /* Primary Color: Vibrant Blue */
+  --primary: 220 100% 70%; /* Bright Blue: #3399FF */
+  --primary-gradient-1: 220 100% 65%; /* Slightly Darker Blue for gradient */
+  --primary-foreground: 0 0% 100%; /* White: #FFFFFF */
+
+  /* Secondary Color: Cool Blue */
+  --secondary: 220 30% 30%; /* Dark Blue: #3D4D66 */
+  --secondary-foreground: 0 0% 100%; /* White */
+
+  /* Muted / Accent Colors */
+  --muted: 220 20% 35%; /* Muted Dark Blue: #4D5C73 */
+  --muted-foreground: 220 30% 90%; /* Light Blue: #D9E6FF */
+
+  --accent: 200 100% 75%; /* Bright Cyan: #99FFFF */
+  --accent-foreground: 0 0% 100%; /* White: #FFFFFF */
+
+  /* Destructive */
+  --destructive: 0 100% 65%; /* Bright Red: #FF4D4D */
+  --destructive-foreground: 0 0% 100%; /* White: #FFFFFF */
+
+  /* Borders and Shadows */
+  --border: 220 30% 25%; /* Dark Blue: #33404D */
+  --shadow: 220 40% 5%; /* Very Dark Blue Shadow */
+
+  --input: 220 30% 25%; /* Dark Blue Input */
+  --ring: 220 100% 70%; /* Bright Blue: #3399FF */
+  --radius: 0.6rem;
+}
+
+.artmax-midnight {
+  --background: 220 40% 8%; /* Midnight Blue: #0F1A26 */
+  --foreground: 220 20% 85%; /* Very Light Blue: #D6E0F2 */
+  --card: 220 35% 12%; /* Dark Bluish Grey: #1A2533 */
+  --card-foreground: 220 20% 85%; /* Very Light Blue: #D6E0F2 */
+  --popover: 220 40% 10%; /* Very Dark Blue: #131F29 */
+  --popover-foreground: 220 20% 85%; /* Very Light Blue: #D6E0F2 */
+
+  /* Primary Color: Vibrant Blue */
+  --primary: 220 100% 75%; /* Bright Blue: #66B3FF */
+  --primary-gradient-1: 220 100% 70%; /* Slightly Darker Blue for gradient */
+  --primary-foreground: 0 0% 100%; /* White: #FFFFFF */
+
+  /* Secondary Color: Cool Blue */
+  --secondary: 220 30% 20%; /* Very Dark Blue: #293340 */
+  --secondary-foreground: 0 0% 100%; /* White */
+
+  /* Muted / Accent Colors */
+  --muted: 220 20% 25%; /* Muted Very Dark Blue: #333D4D */
+  --muted-foreground: 220 20% 85%; /* Very Light Blue: #D6E0F2 */
+
+  --accent: 200 100% 80%; /* Bright Cyan: #B3FFFF */
+  --accent-foreground: 0 0% 100%; /* White: #FFFFFF */
+
+  /* Destructive */
+  --destructive: 0 100% 70%; /* Bright Red: #FF6666 */
+  --destructive-foreground: 0 0% 100%; /* White: #FFFFFF */
+
+  /* Borders and Shadows */
+  --border: 220 30% 15%; /* Very Dark Blue: #20293D */
+  --shadow: 220 40% 3%; /* Almost Black Blue Shadow */
+
+  --input: 220 30% 15%; /* Very Dark Blue Input */
+  --ring: 220 100% 75%; /* Bright Blue: #66B3FF */
+  --radius: 0.6rem;
+}
+
+html {
+  font-size: 15px;
+  @apply md:overflow-hidden
+}

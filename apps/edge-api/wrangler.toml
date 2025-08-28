@@ -1,0 +1,48 @@
+name = "shray-edge-api"
+account_id = "c0d08efbfb95180d6f954dc5878de7c3"  # Replace with your Cloudflare account ID from 'wrangler whoami'
+compatibility_date = "2024-12-20"
+compatibility_flags = ["nodejs_compat", "nodejs_compat_populate_process_env"]
+main = "src/index.ts"
+minify = true
+
+# Cron trigger for Telegram persona scheduler
+[triggers]
+crons = ["* * * * *"]  # Run every minute
+
+[observability]
+enabled = true
+head_sampling_rate = 1 # optional. default = 1.
+
+# Public variables (non-sensitive)
+[vars]
+NODE_ENV = "production"
+
+
+
+# Environment-specific configurations
+[env.staging]
+name = "shray-edge-api-staging"
+vars = { NODE_ENV = "staging" }
+
+[env.staging.vars]
+
+
+[[env.staging.r2_buckets]]
+binding = "R2_BUCKET"
+bucket_name = "ghostcontent-uploads"
+
+[env.production]
+name = "shray-edge-api-prod"
+vars = { NODE_ENV = "production" }
+
+[[env.production.r2_buckets]]
+binding = "R2_BUCKET"
+bucket_name = "ghostcontent-uploads"
+
+# R2 Storage binding
+[[r2_buckets]]
+binding = "R2_BUCKET"
+bucket_name = "ghostcontent-uploads"
+
+# Environment variables will be set via wrangler secrets or dashboard
+# Example: wrangler secret put DATABASE_URL

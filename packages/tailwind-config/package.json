@@ -1,0 +1,11 @@
+{
+  "name": "@shray/tailwind-config",
+  "version": "0.1.0",
+  "main": "./tailwind.config.js",
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "tailwindcss": "3.4.1",
+    "tailwindcss-animate": "^1.0.6"
+  }
+}

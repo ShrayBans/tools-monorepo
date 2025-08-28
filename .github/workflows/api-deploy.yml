@@ -1,0 +1,106 @@
+name: Deploy Edge API
+
+on:
+  push:
+    branches:
+      - master
+    paths:
+      - "apps/edge-api/**"
+      - "packages/**"
+      - ".github/workflows/api-deploy.yml"
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    name: Deploy Edge API to Cloudflare Workers
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: pnpm/action-setup@v2
+        with:
+          version: 9
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: pnpm
+
+      - name: Get pnpm store directory
+        shell: bash
+        run: |
+          echo "STORE_PATH=$(pnpm store path --silent)" >> $GITHUB_ENV
+
+      - name: Setup pnpm cache
+        uses: actions/cache@v3
+        with:
+          path: ${{ env.STORE_PATH }}
+          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-pnpm-store-
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Set Sentry release name
+        run: echo "SENTRY_RELEASE=shray-internal-edge-api@${{ github.sha }}" >> $GITHUB_ENV
+
+
+      - name: Type check edge-api
+        run: pnpm type-check
+        working-directory: apps/edge-api
+
+      - name: Deploy to Cloudflare Workers
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CF_API_KEY }}
+          workingDirectory: "apps/edge-api"
+          command: deploy --env production --var GIT_COMMIT_SHA:${{ github.sha }} --var GIT_BRANCH:${{ github.ref_name }} --var LAST_DEPLOYED_AT:${{ github.event.head_commit.timestamp }}
+          # command: deploy --env production --upload-source-maps --var GIT_COMMIT_SHA:${{ github.sha }} --var GIT_BRANCH:${{ github.ref_name }} --var LAST_DEPLOYED_AT:${{ github.event.head_commit.timestamp }} --var SENTRY_RELEASE:${{ env.SENTRY_RELEASE }}
+        env:
+          SKIP_ENV_VALIDATION: "true"
+
+      - name: Notify Slack on Success
+        if: success()
+        run: |
+          curl -X POST https://hooks.slack.com/services/xxxxxx \
+            -H 'Content-Type: application/json' \
+            -d "{\"text\": \"✅ Edge API deployed (\`${{ github.sha }}\`)\"}"
+
+      - name: Notify Slack on Failure
+        if: failure()
+        run: |
+          curl -X POST https://hooks.slack.com/services/xxxxxx \
+            -H 'Content-Type: application/json' \
+            -d '{
+              "text": ":x: Edge API Deployment Failed",
+              "blocks": [
+                {
+                  "type": "section",
+                  "text": {
+                    "type": "mrkdwn",
+                    "text": ":x: *Edge API Deployment Failed*\n\n*Workflow:* ${{ github.workflow }}\n*Branch:* ${{ github.ref_name }}\n*Commit:* <${{ github.server_url }}/${{ github.repository }}/commit/${{ github.sha }}|`${{ github.sha }}`>\n*Author:* ${{ github.actor }}\n*Message:* ${{ github.event.head_commit.message }}"
+                  }
+                },
+                {
+                  "type": "actions",
+                  "elements": [
+                    {
+                      "type": "button",
+                      "text": {
+                        "type": "plain_text",
+                        "text": "View Run"
+                      },
+                      "url": "${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+                    },
+                    {
+                      "type": "button",
+                      "text": {
+                        "type": "plain_text",
+                        "text": "View Commit"
+                      },
+                      "url": "${{ github.server_url }}/${{ github.repository }}/commit/${{ github.sha }}"
+                    }
+                  ]
+                }
+              ]
+            }'

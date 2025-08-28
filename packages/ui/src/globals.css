@@ -1,0 +1,29 @@
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+@import "./themes/novel.css";
+
+@layer base {
+  * {
+    @apply border-border;
+    letter-spacing: normal;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+@layer utilities {
+  .keyboard-focus {
+    @apply focus-visible:outline-none focus-visible:ring-[3px] focus-visible:ring-ring/30;
+  }
+
+  .keyboard-input-focus {
+    @apply focus:outline-none focus:ring-[3px] focus:ring-ring/30;
+  }
+}
